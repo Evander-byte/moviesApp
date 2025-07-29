@@ -4,6 +4,7 @@ import { RootStackParams } from "../../navigation/StackNavigator"
 import { useMovie } from "../../hooks/useMovie"
 import MovieHeader from "../../components/movie/MovieHeader"
 import MovieDetails from "../../components/movie/MovieDetails"
+import FullscreenLoader from "../../components/loaders/FullscreenLoader"
 
 interface Props extends StackScreenProps<RootStackParams, "Details">{}
 
@@ -13,7 +14,7 @@ const DetailsScreen = ({ route}: Props) => {
   const { isLoading, movie, cast} = useMovie(movieId)
 
   if(isLoading) {
-    return (<Text>Loading...</Text>)
+    return <FullscreenLoader />
   }
 
   return (
