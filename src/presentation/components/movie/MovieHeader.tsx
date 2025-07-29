@@ -15,34 +15,27 @@ const MovieHeader = ({poster, originalTitle, title}: Props) => {
   const navigation = useNavigation()
 
   return (
-    <View
-      style={{...styles.imageContainer, height: screenHeight * 0.7}}
-    >
-      <View
-        style={styles.imageBorder}
-      >
-        <Image 
-          source={{uri: poster}}
-          style={styles.posterImage}
-        />
+    <>
+      <View style={{ ...styles.imageContainer, height: screenHeight * 0.7 }}>
+        <View style={ styles.imageBorder }>
+          <Image 
+            style={ styles.posterImage }
+            source={{ uri: poster }}
+          />
+        </View>
       </View>
 
-      <View
-        style={styles.marginContainer}
-      >
-        <Text style={styles.title}>{originalTitle}</Text>
-        <Text style={styles.subTitle}>{title}</Text>
+      <View style={ styles.marginContainer }>
+        <Text style={ styles.subTitle }>{ originalTitle }</Text>
+        <Text style={ styles.title }>{ title }</Text>
       </View>
-      <View
-        style={styles.backButton}
-      >
-        <Pressable
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.backButtonText}>Back</Text>
+
+      <View style={ styles.backButton }>
+        <Pressable onPress={ () => navigation.goBack() }>
+          <Text style={ styles.backButtonText }>Regresar</Text>
         </Pressable>
       </View>
-    </View>
+    </>
   )
 }
 
